@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const GreyButton = ({ innerText }) => <div id={`btn${innerText}`} className="calculator__grey-btn">{innerText}</div>;
+const GreyButton = ({ innerText }) => (
+  <div id={`btn${innerText}`} className="calculator__grey-btn">
+    {innerText}
+  </div>
+);
 GreyButton.propTypes = {
   innerText: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
-const OrangeButton = ({ innerText }) => <div id={`btn${innerText}`} className="calculator__orange-btn">{innerText}</div>;
+const OrangeButton = ({ innerText }) => (
+  <div id={`btn${innerText}`} className="calculator__orange-btn">
+    {innerText}
+  </div>
+);
 OrangeButton.propTypes = {
   innerText: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
