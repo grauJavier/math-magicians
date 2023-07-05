@@ -1,22 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const GreyButton = ({ innerText }) => (
-  <div id={`btn${innerText}`} className="calculator__grey-btn">
+const Button = ({ innerText, className }) => (
+  <div id={`btn${innerText}`} className={className}>
     {innerText}
   </div>
 );
-GreyButton.propTypes = {
-  innerText: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-};
 
-const OrangeButton = ({ innerText }) => (
-  <div id={`btn${innerText}`} className="calculator__orange-btn">
-    {innerText}
-  </div>
-);
-OrangeButton.propTypes = {
+Button.propTypes = {
   innerText: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 const Display = ({ innerText }) => (
@@ -33,7 +26,7 @@ const UtilityPad = () => {
   const OUTPUT = [];
 
   for (let i = 0; i < UTILITY_BUTTONS.length; i += 1) {
-    OUTPUT.push(<GreyButton key={i} innerText={UTILITY_BUTTONS[i]} />);
+    OUTPUT.push(<Button innerText={UTILITY_BUTTONS[i]} className="calculator__grey-btn" />);
   }
 
   return OUTPUT;
@@ -41,17 +34,18 @@ const UtilityPad = () => {
 
 const NumericPad = () => {
   const OUTPUT = [];
-  let highestNumber = 9;
+  const NUMERIC_PAD_ROWS = [
+    [7, 8, 9],
+    [4, 5, 6],
+    [1, 2, 3],
+    [0, '.'],
+  ];
 
-  for (let i = 1; i <= 3; i += 1) {
-    for (let int = highestNumber - 2; int <= highestNumber; int += 1) {
-      OUTPUT.push(<GreyButton key={int} innerText={int} />);
+  for (let row = 0; row < NUMERIC_PAD_ROWS.length; row += 1) {
+    for (let number = 0; number < NUMERIC_PAD_ROWS[row].length; number += 1) {
+      OUTPUT.push(<Button innerText={NUMERIC_PAD_ROWS[row][number]} className="calculator__grey-btn" />);
     }
-    highestNumber -= 3;
   }
-
-  OUTPUT.push(<GreyButton key="0" innerText={0} />);
-  OUTPUT.push(<GreyButton key="decimal" innerText="." />);
 
   return OUTPUT;
 };
@@ -61,21 +55,21 @@ const OperatorsPad = () => {
   const OUTPUT = [];
 
   for (let i = 0; i < OPERATOR_BUTTONS.length; i += 1) {
-    OUTPUT.push(<OrangeButton key={i} innerText={OPERATOR_BUTTONS[i]} />);
+    OUTPUT.push(<Button innerText={OPERATOR_BUTTONS[i]} className="calculator__orange-btn" />);
   }
 
   return OUTPUT;
 };
 
 const Calculator = () => (
-  <div id="calculator">
+  <div id="calculator" className="grid">
     <Display innerText="0" />
-    <div id="calculator__keypad">
-      <div id="calculator__grey-btns-container">
+    <div id="calculator__keypad" className="grid">
+      <div id="calculator__grey-btns-container" className="grid">
         <UtilityPad />
         <NumericPad />
       </div>
-      <div id="calculator__orange-btns-container">
+      <div id="calculator__orange-btns-container" className="grid">
         <OperatorsPad />
       </div>
     </div>
