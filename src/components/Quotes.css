@@ -21,7 +21,8 @@
   line-height: 2.3em;
 }
 
-#quote__loading, #quote__error {
+#quote__loading,
+#quote__error {
   font-family: inherit;
   text-align: center;
 }
