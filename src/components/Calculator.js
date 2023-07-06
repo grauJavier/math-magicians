@@ -2,13 +2,19 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import calculate from './logic/calculate';
 
-function Calculator() {
+export default function Calculator() {
   const [CURRENT_DATA, UPDATED_DATA] = useState({});
 
   function updateData(event) {
     const BUTTON_DATA = event.target.name;
     UPDATED_DATA(calculate(CURRENT_DATA, BUTTON_DATA));
   }
+
+  function resultBuilder() {
+    return `${CURRENT_DATA.total || ''}${CURRENT_DATA.operation || ''}${CURRENT_DATA.next || ''}`;
+  }
+
+  const RESULT = resultBuilder();
 
   function Button({ nameAndValue, className }) {
     return (
@@ -71,24 +77,6 @@ function Calculator() {
     return OUTPUT;
   }
 
-  function resultBuilder() {
-    if (!CURRENT_DATA.total) {
-      CURRENT_DATA.total = '';
-    }
-
-    if (!CURRENT_DATA.operation) {
-      CURRENT_DATA.operation = '';
-    }
-
-    if (!CURRENT_DATA.next) {
-      CURRENT_DATA.next = '';
-    }
-
-    return CURRENT_DATA.total + CURRENT_DATA.operation + CURRENT_DATA.next;
-  }
-
-  const RESULT = resultBuilder();
-
   return (
     <div id="calculator" className="grid">
       <Display innerData={RESULT || 0} />
@@ -104,5 +92,3 @@ function Calculator() {
     </div>
   );
 }
-
-export default Calculator;
