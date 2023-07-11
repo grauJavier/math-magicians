@@ -1,17 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
-
 #quote__container {
-  width: 50%;
   min-width: 300px;
-  margin: 0.5em auto;
   font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #quote {
+  margin-top: 3em;
   font-family: inherit;
   font-style: italic;
   text-align: end;
   font-size: 1.8em;
+  width: 60%;
 }
 
 #quote__author {
@@ -19,6 +21,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 2.3em;
+  text-shadow: 0.4em 0.4em 3px #00000030;
 }
 
 #quote__loading,
