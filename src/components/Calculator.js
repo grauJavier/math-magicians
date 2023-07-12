@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import calculate from './logic/calculate';
+import './css/Calculator.css';
 
 export default function Calculator() {
   const [CURRENT_DATA, UPDATED_DATA] = useState({});
@@ -42,7 +43,13 @@ export default function Calculator() {
     const OUTPUT = [];
 
     for (let i = 0; i < UTILITY_BUTTONS.length; i += 1) {
-      OUTPUT.push(<Button key={UTILITY_BUTTONS[i]} nameAndValue={UTILITY_BUTTONS[i]} className="calculator__grey-btn" />);
+      OUTPUT.push(
+        <Button
+          key={UTILITY_BUTTONS[i]}
+          nameAndValue={UTILITY_BUTTONS[i]}
+          className="calculator__grey-btn"
+        />,
+      );
     }
 
     return OUTPUT;
@@ -59,7 +66,13 @@ export default function Calculator() {
 
     for (let row = 0; row < NUMERIC_PAD_ROWS.length; row += 1) {
       for (let number = 0; number < NUMERIC_PAD_ROWS[row].length; number += 1) {
-        OUTPUT.push(<Button key={NUMERIC_PAD_ROWS[row][number]} nameAndValue={NUMERIC_PAD_ROWS[row][number]} className="calculator__grey-btn" />);
+        OUTPUT.push(
+          <Button
+            key={NUMERIC_PAD_ROWS[row][number]}
+            nameAndValue={NUMERIC_PAD_ROWS[row][number]}
+            className="calculator__grey-btn"
+          />,
+        );
       }
     }
 
@@ -71,24 +84,36 @@ export default function Calculator() {
     const OUTPUT = [];
 
     for (let i = 0; i < OPERATOR_BUTTONS.length; i += 1) {
-      OUTPUT.push(<Button key={OPERATOR_BUTTONS[i]} nameAndValue={OPERATOR_BUTTONS[i]} className="calculator__orange-btn" />);
+      OUTPUT.push(
+        <Button
+          key={OPERATOR_BUTTONS[i]}
+          nameAndValue={OPERATOR_BUTTONS[i]}
+          className="calculator__orange-btn"
+        />,
+      );
     }
 
     return OUTPUT;
   }
 
   return (
-    <div id="calculator" className="grid">
-      <Display innerData={RESULT || 0} />
-      <div id="calculator__keypad" className="grid">
-        <div id="calculator__grey-btns-container" className="grid">
-          <UtilityPad />
-          <NumericPad />
-        </div>
-        <div id="calculator__orange-btns-container" className="grid">
-          <OperatorsPad />
+    <section id="calculator-page">
+      <h1 id="calculator__title">
+        Let&apos;s do some
+        <span> Math!</span>
+      </h1>
+      <div id="calculator" className="grid">
+        <Display innerData={RESULT || 0} />
+        <div id="calculator__keypad" className="grid">
+          <div id="calculator__grey-btns-container" className="grid">
+            <UtilityPad />
+            <NumericPad />
+          </div>
+          <div id="calculator__orange-btns-container" className="grid">
+            <OperatorsPad />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
