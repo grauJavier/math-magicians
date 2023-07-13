@@ -1,0 +1,31 @@
+#quote__container {
+  min-width: 300px;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#quote {
+  margin-top: 3em;
+  font-family: inherit;
+  font-style: italic;
+  text-align: end;
+  font-size: 1.8em;
+  width: 60%;
+}
+
+#quote__author {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.3em;
+  text-shadow: 0.4em 0.4em 3px #00000030;
+}
+
+#quote__loading,
+#quote__error {
+  font-family: inherit;
+  text-align: center;
+}
