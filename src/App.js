@@ -5,13 +5,13 @@ import Home from './components/Home';
 
 function App() {
   return (
-    <main>
+    <>
       <Routes>
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/quotes" element={<Quotes />} />
         <Route path="/" element={<Home />} />
       </Routes>
-    </main>
+    </>
   );
 }
 

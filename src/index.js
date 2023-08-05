@@ -12,26 +12,28 @@ import PageNotFound from './components/PageNotFound';
 
 const routes = createBrowserRouter([
   {
-    path: '/',
+    path: '*',
     element: <App />,
     errorElement: <PageNotFound />,
   },
   {
     path: '/calculator',
     element: <Calculator />,
+    errorElement: <PageNotFound />,
   },
   {
     path: '/quotes',
     element: <Quotes />,
+    errorElement: <PageNotFound />,
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <>
     <Header />
     <RouterProvider router={routes} />
-  </React.StrictMode>,
+  </>,
 );
 
 reportWebVitals();

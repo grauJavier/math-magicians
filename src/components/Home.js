@@ -25,11 +25,11 @@ const Home = () => (
       words of great minds transport you to extraordinary realms, igniting the spark of creativity
       within you.
     </p>
-    <p className="home__body-text">
-      <center>
+    <center>
+      <p className="home__body-text">
         <b>Welcome once again, dear visitor. Math Magicians is here to guide and inspire you!</b>
-      </center>
-    </p>
+      </p>
+    </center>
   </section>
 );
 
